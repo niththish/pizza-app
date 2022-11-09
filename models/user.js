@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const addressSchema = require("./address");
+const cartSchema = require("./cart");
 
 const userSchema = mongoose.Schema({
   username: {
@@ -20,4 +21,5 @@ const userSchema = mongoose.Schema({
     required: [true, "mobile number required"],
   },
   address: addressSchema,
+  cart: cartSchema,
 });
