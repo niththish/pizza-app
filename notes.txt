@@ -1,0 +1,19 @@
+post:-   /user/login         ->  to login and return token
+post:-   /user/signup        ->  to register user
+patch:-  /user               ->  to modify user details
+ 
+get:-    /pizzas             ->  to retrieve all pizza
+get:-    /pizzas?search      ->  to get all pizza for search query
+get:-    /pizzas/:category   ->  to get all pizzas of particular category
+ 
+post:-   /pizzas             ->  to create a new pizza data
+patch:-  /pizzas/:id         ->  to update a pizza data
+delete:- /pizzas/:id         ->  to delete a pizza data
+
+get:-    /user/cart          ->  to get the cart of the user
+post:-   /user/cart          ->  to add pizza item to user cart
+delete:- /user/cart/:id      ->  to remove a particular cart from the carts
+delete:- /user/cart          ->  to remove all items from the cart
+
+get:-    /user/orders        ->  to get all the orders user made
+get:-    /orders             ->  to get all the orders the app recieved
