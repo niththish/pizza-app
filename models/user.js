@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const addressSchema = require("./address");
 
 const userSchema = mongoose.Schema({
   username: {
@@ -18,4 +19,5 @@ const userSchema = mongoose.Schema({
     type: String,
     required: [true, "mobile number required"],
   },
+  address: addressSchema,
 });
