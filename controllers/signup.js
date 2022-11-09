@@ -1,3 +1,5 @@
+const userSchema = require("../models/user");
+
 const signup = async (req, res, next) => {
   const { username, password, email, mobile, address } = req.body;
 
@@ -25,7 +27,17 @@ const signup = async (req, res, next) => {
     return next(mobileValidation);
   }
 
-  res.json("works");
+  const user = await userSchema.findOne({
+    $or: [{ username }, { email }, { mobile }],
+  });
+  if (user) {
+    if (user.username === username) return next("username already exists");
+    if (user.email === email) return next("email id already exists");
+    if (user.mobile === mobile) return next("mobile number already exists");
+  }
+  await userSchema.create({ username, password, email, mobile, address });
+
+  res.json({ status: "user registered successfully" });
 };
 
 const validateUsername = (username) => {
