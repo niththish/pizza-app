@@ -27,6 +27,7 @@ const signup = async (req, res, next) => {
     return next(mobileValidation);
   }
 
+  //checking for user account already exists in the database
   const user = await userSchema.findOne({
     $or: [{ username }, { email }, { mobile }],
   });
@@ -35,8 +36,9 @@ const signup = async (req, res, next) => {
     if (user.email === email) return next("email id already exists");
     if (user.mobile === mobile) return next("mobile number already exists");
   }
-  await userSchema.create({ username, password, email, mobile, address });
 
+  //creating a new user account
+  await userSchema.create({ username, password, email, mobile, address });
   res.json({ status: "user registered successfully" });
 };
 
