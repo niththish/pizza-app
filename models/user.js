@@ -23,3 +23,5 @@ const userSchema = mongoose.Schema({
   address: addressSchema,
   cart: cartSchema,
 });
+
+module.exports = mongoose.model("user", userSchema);
