@@ -9,6 +9,11 @@ const {
 const login = async (req, res, next) => {
   const { username, password } = req.body;
 
+  //checking for all values present in the request body
+  if (!username || !password) {
+    return next("required all information");
+  }
+
   //username validation for minimum 4 characters
   const usernameValidation = validateUsername(username);
   if (usernameValidation) {
