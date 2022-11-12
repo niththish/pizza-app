@@ -5,7 +5,7 @@ const authVerification = async (req, res, next) => {
   if (!authToken || !authToken.startsWith("Bearer ")) {
     return next("token not present");
   }
-  const token = authHeader.split(" ")[1];
+  const token = authToken.split(" ")[1];
   try {
     const data = verifyToken(token);
     req.id = data.id;
