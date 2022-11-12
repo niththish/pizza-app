@@ -11,7 +11,7 @@ const login = async (req, res, next) => {
 
   //checking for all values present in the request body
   if (!username || !password) {
-    return next("required all information");
+    return next("required both username & password");
   }
 
   //username validation for minimum 4 characters
@@ -26,17 +26,16 @@ const login = async (req, res, next) => {
     return next(passwordValidation);
   }
 
-  //checking for user exists in the database
   const user = await userSchema.findOne({ username });
   if (user) {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (isPasswordCorrect) {
-      res.json({ status: "login successfull" });
+      res.json({ status: "login successful" });
     } else {
-      return next("password is wrong");
+      return next("invalid password");
     }
   } else {
-    return next("user not found");
+    return next("username not found");
   }
 };
 
