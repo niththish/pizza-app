@@ -15,3 +15,5 @@ const verifyToken = (token) => {
     throw new Error("invalid token");
   }
 };
+
+module.exports = { signToken, verifyToken };
