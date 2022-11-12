@@ -1,5 +1,6 @@
 const userSchema = require("../models/user");
 const bcrypt = require("bcryptjs");
+const { signToken } = require("../config/token");
 
 const {
   validateUsername,
@@ -30,7 +31,8 @@ const login = async (req, res, next) => {
   if (user) {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (isPasswordCorrect) {
-      res.json({ status: "login successful" });
+      const token = signToken({ id: user._id });
+      res.json({ status: "login successful", token: token });
     } else {
       return next("invalid password");
     }
