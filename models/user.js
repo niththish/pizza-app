@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema({
     required: [true, "mobile number required"],
   },
   address: addressSchema,
-  cart: cartSchema,
+  cart: [cartSchema],
 });
 
 userSchema.pre("save", async function (next) {
