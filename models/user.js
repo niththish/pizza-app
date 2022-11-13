@@ -23,6 +23,14 @@ const userSchema = mongoose.Schema({
   },
   address: addressSchema,
   cart: [cartSchema],
+  role: {
+    type: String,
+    default: "user",
+    enum: {
+      values: ["customer"],
+      message: "role can be only customer",
+    },
+  },
 });
 
 userSchema.pre("save", async function (next) {

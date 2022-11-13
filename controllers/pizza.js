@@ -21,4 +21,8 @@ const getPizzaBySearch = async (req, res, next) => {
   res.json({ pizzas });
 };
 
-module.exports = { getPizzas, getPizzaByCategory, getPizzaBySearch };
+const addPizza = async (req, res, next) => {
+  res.json("testing");
+};
+
+module.exports = { getPizzas, getPizzaByCategory, getPizzaBySearch, addPizza };
