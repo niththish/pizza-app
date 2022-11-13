@@ -12,6 +12,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static("public"));
+
 app.use("/api/user", userRouter);
 app.use("/api/user/cart", cartRouter);
 app.use("/api/pizzas", authVerification, pizzaRouter);
