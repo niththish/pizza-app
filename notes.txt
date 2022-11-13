@@ -12,7 +12,7 @@ delete:- /pizzas/:id         ->  to delete a pizza data
 
 get:-    /user/cart          ->  to get the cart of the user
 post:-   /user/cart          ->  to add pizza item to user cart
-delete:- /user/cart/:id      ->  to remove a particular cart from the carts
+delete:- /user/cart/item      ->  to remove a particular item from the carts
 delete:- /user/cart          ->  to remove all items from the cart
 
 get:-    /user/orders        ->  to get all the orders user made
