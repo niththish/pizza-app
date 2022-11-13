@@ -1,6 +1,6 @@
 const userSchema = require("../models/user");
 
-const userCart = async (req, res, next) => {
+const getCart = async (req, res, next) => {
   const _id = req.id;
   const orders = await userSchema.findOne({ _id }, { cart: 1 });
   if (orders) {
@@ -10,4 +10,4 @@ const userCart = async (req, res, next) => {
   }
 };
 
-module.exports = { userCart };
+module.exports = { getCart };
