@@ -5,6 +5,7 @@ require("dotenv").config();
 const userRouter = require("./routes/user");
 const cartRouter = require("./routes/cart");
 const pizzaRouter = require("./routes/pizza");
+const ordersRouter = require("./routes/orders");
 
 const authVerification = require("./middleware/verifyToken");
 
@@ -17,6 +18,7 @@ app.use(express.static("public"));
 app.use("/api/user", userRouter);
 app.use("/api/user/cart", cartRouter);
 app.use("/api/pizzas", authVerification, pizzaRouter);
+app.use("/api/orders", authVerification, ordersRouter);
 
 const startApplication = async () => {
   await databaseConnection(process.env.DATABASEURL);

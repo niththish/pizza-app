@@ -15,5 +15,6 @@ post:-   /user/cart                             ->  to add pizza item to user ca
 delete:- /user/cart/item                        ->  to remove a particular item from the carts
 delete:- /user/cart                             ->  to remove all items from the cart
 
-get:-    /user/orders                           ->  to get all the orders user made
+
 get:-    /orders                                ->  to get all the orders the app recieved
+                                                ->  to get all the orders user made
