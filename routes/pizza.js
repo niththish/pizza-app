@@ -3,9 +3,8 @@ const {
   getPizzas,
   getPizzaByCategory,
   getPizzaBySearch,
-  addPizza,
 } = require("../controllers/pizza");
-
+const addPizza = require("../controllers/new_pizza");
 const adminVerification = require("../middleware/verifyAdmin");
 const uploadFile = require("../middleware/uploadFile");
 
