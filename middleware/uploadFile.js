@@ -6,18 +6,25 @@ const multerDiskStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
-    const fileName = `${file.fieldname}-${new Date().getTime()}.${ext}`;
+    const baseName = file.originalname.split(".")[0];
+    const fileName = `${baseName}-${new Date().getTime()}.${ext}`;
     cb(null, fileName);
   },
 });
 
 const multerFileFilter = (req, file, cb) => {
   const mimeType = file.mimetype.split("/")[1];
-  if (mimeType === "jpeg" || mimeType === "jpg" || mimeType === "webp") {
-    return cb(null, true);
-  } else {
+  const { type, price, name } = req.body;
+
+  if (!type || !price || !name) {
+    return cb("all fields are required", false);
+  }
+
+  if (mimeType !== "jpeg" && mimeType !== "jpg" && mimeType !== "webp") {
     return cb("file format not accepted", false);
   }
+
+  return cb(null, true);
 };
 
 const upload = multer({
@@ -29,10 +36,7 @@ const upload = multer({
 const uploadFile = async (req, res, next) => {
   upload.single("pizza_img")(req, res, function (err) {
     if (err) return next(err);
-    else {
-      console.log(req.file);
-      next();
-    }
+    else next();
   });
 };
 

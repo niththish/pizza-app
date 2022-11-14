@@ -1,6 +1,11 @@
+const pizzaSchema = require("../models/pizza");
+
 const addPizza = async (req, res, next) => {
+  if (!req.file) return next("image file required");
+
   const { name, price, type } = req.body;
-  const image = `images/${req.file.filename}`;
+  const URL = process.env.BASE_URL;
+  const image = `${URL}/images/${req.file.filename}`;
 
   if (!name || !price || !type) return next("all fields are required");
 
