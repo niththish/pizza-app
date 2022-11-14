@@ -1,14 +1,5 @@
 const mongoose = require("mongoose");
 
-const orderSchema = mongoose.Schema({
-  customerId: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: "user",
-    required: [true, "customer id required"],
-  },
-  items: [pizzaItem],
-});
-
 const pizzaItem = mongoose.Schema({
   name: {
     type: String,
@@ -24,4 +15,13 @@ const pizzaItem = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.Mongoose.model("order", orderSchema);
+const orderSchema = mongoose.Schema({
+  customerId: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "user",
+    required: [true, "customer id required"],
+  },
+  items: [pizzaItem],
+});
+
+module.exports = mongoose.model("order", orderSchema);
