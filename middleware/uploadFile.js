@@ -16,8 +16,12 @@ const multerFileFilter = (req, file, cb) => {
   const mimeType = file.mimetype.split("/")[1];
   const { type, price, name } = req.body;
 
-  if (!type || !price || !name) {
+  if ((!type || !price || !name) && req.method != "PATCH") {
     return cb("all fields are required", false);
+  }
+
+  if (req.method === "PATCH" && !type) {
+    return cb("pizza type is required", false);
   }
 
   if (mimeType !== "jpeg" && mimeType !== "jpg" && mimeType !== "webp") {

@@ -5,6 +5,7 @@ const {
   getPizzaBySearch,
 } = require("../controllers/pizza");
 const addPizza = require("../controllers/new_pizza");
+const updatePizza = require("../controllers/update_pizza");
 const adminVerification = require("../middleware/verifyAdmin");
 const uploadFile = require("../middleware/uploadFile");
 
@@ -14,5 +15,6 @@ router.get("/:type", getPizzaByCategory);
 router.get("/search", getPizzaBySearch);
 
 router.post("/", [adminVerification, uploadFile], addPizza);
+router.patch("/:id", [adminVerification, uploadFile], updatePizza);
 
 module.exports = router;
