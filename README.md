@@ -1,9 +1,9 @@
 # pizza-app
 A full stack pizza store application
-1) [stack details](https://github.com/niththish/pizza-app/new/main?readme=1#stack-detail)
-2) [backend requirements](https://github.com/niththish/pizza-app/new/main?readme=1#requirements-in-backend-folder)
-3) [api endpoints](https://github.com/niththish/pizza-app/new/main?readme=1#api-endpoints)
-4) [app design](https://github.com/niththish/pizza-store-app/edit/main/README.md#app-design)
+1) [stack details](https://github.com/niththish/pizza-store-app/blob/main/README.md#stack-detail)
+2) [backend requirements](https://github.com/niththish/pizza-store-app/blob/main/README.md#requirements-in-backend-folder)
+3) [api endpoints](https://github.com/niththish/pizza-store-app/blob/main/README.md#api-endpoints)
+4) [app design](https://github.com/niththish/pizza-store-app/blob/main/README.md#app-design)
 ***
 
 ## stack detail
