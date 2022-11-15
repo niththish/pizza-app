@@ -54,4 +54,6 @@ A full stack pizza store application
 ***
 
 ## APP DESIGN
- 
+<img src="https://github.com/niththish/Designs/blob/main/pizza%20app/app%20design.png?raw=true" width="75%" />
+
+***
