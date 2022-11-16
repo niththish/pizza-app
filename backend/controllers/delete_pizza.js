@@ -1,6 +1,7 @@
 const pizzaSchema = require("../models/pizza");
 const fs = require("fs/promises");
 
+//deletes a particular pizza item for the database using productId
 const deletePizza = async (req, res, next) => {
   const _id = req.params.id;
   const pizza = await pizzaSchema.findOne({ _id });
@@ -10,7 +11,6 @@ const deletePizza = async (req, res, next) => {
   if (image) image = image.replace("localhost:5000/", "public/");
 
   try {
-    console.log(image);
     await fs.rm(image);
   } catch (err) {
     console.log("image not found");

@@ -2,6 +2,7 @@ const orderSchema = require("../models/orders");
 const userSchema = require("../models/user");
 const pizzaSchema = require("../models/pizza");
 
+//adds a new order of the user in the users collection of the database
 const addToOrders = async (req, res, next) => {
   const _id = req.id;
 
@@ -18,6 +19,7 @@ const addToOrders = async (req, res, next) => {
   res.json({ status: "order successful" });
 };
 
+//helper function to generate correct orders details
 async function getOrders(orders) {
   const newOrders = await Promise.all(orders.map(mapping));
   return newOrders.filter((orders) => orders !== undefined);

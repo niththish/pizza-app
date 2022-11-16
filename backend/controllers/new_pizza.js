@@ -1,5 +1,6 @@
 const pizzaSchema = require("../models/pizza");
 
+//adds a new pizza item to the pizzas collection
 const addPizza = async (req, res, next) => {
   if (!req.file) return next("image file required");
 

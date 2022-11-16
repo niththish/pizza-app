@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+//to sign a new token
 const signToken = (payload) => {
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRY,
@@ -7,6 +8,7 @@ const signToken = (payload) => {
   return token;
 };
 
+//to verify the token is vaild or not
 const verifyToken = (token) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);

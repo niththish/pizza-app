@@ -1,5 +1,6 @@
 const multer = require("multer");
 
+//multer storage configuration
 const multerDiskStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, `public/images/${req.body.type}`);
@@ -12,6 +13,7 @@ const multerDiskStorage = multer.diskStorage({
   },
 });
 
+//multer file filter to allow only image files
 const multerFileFilter = (req, file, cb) => {
   const mimeType = file.mimetype.split("/")[1];
   const { type, price, name } = req.body;
@@ -37,6 +39,7 @@ const upload = multer({
   limits: { files: 1 },
 });
 
+//file upload middleware
 const uploadFile = async (req, res, next) => {
   upload.single("pizza_img")(req, res, function (err) {
     if (err) return next(err);

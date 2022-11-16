@@ -1,5 +1,6 @@
 const userSchema = require("../models/user");
 
+//to get a users cart items
 const getCart = async (req, res, next) => {
   const _id = req.id;
   const orders = await userSchema.findOne({ _id }, { cart: 1 });
@@ -10,6 +11,7 @@ const getCart = async (req, res, next) => {
   }
 };
 
+//to add a item into a users cart
 const addToCart = async (req, res, next) => {
   const _id = req.id;
   const { productId, quantity, price } = req.body;
@@ -27,6 +29,7 @@ const addToCart = async (req, res, next) => {
   res.json({ status: "added to cart successfully" });
 };
 
+//to delete a item from a user cart
 const deleteFromCart = async (req, res, next) => {
   const _id = req.id;
   const { productId, quantity, price } = req.body;
@@ -43,6 +46,7 @@ const deleteFromCart = async (req, res, next) => {
   res.json({ status: "removed item from cart successfully" });
 };
 
+//to empty the user cart
 const deleteCart = async (req, res, next) => {
   const _id = req.id;
   await userSchema.updateOne(

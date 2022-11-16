@@ -1,5 +1,6 @@
 const pizzaSchema = require("../models/pizza");
 
+//updates a pizza item information
 const updatePizza = async (req, res, next) => {
   const _id = req.params.id;
   if (!_id) return next("pizza id required");
