@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-pizzas',
   templateUrl: './pizzas.component.html',
-  styleUrls: ['./pizzas.component.scss']
+  styleUrls: ['./pizzas.component.scss'],
 })
-export class PizzasComponent implements OnInit {
+export class AdminPizzasComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
