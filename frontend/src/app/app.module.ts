@@ -12,6 +12,7 @@ import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
 import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
 import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
 import { AdminOrdersComponent } from './admin/orders/orders.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdminOrdersComponent } from './admin/orders/orders.component';
     EditPizzaComponent,
     AddPizzaComponent,
     AdminOrdersComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
