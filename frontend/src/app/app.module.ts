@@ -10,6 +10,8 @@ import { CartComponent } from './user/cart/cart.component';
 import { OrdersComponent } from './user/orders/orders.component';
 import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
 import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
+import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
+import { AdminOrdersComponent } from './admin/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,13 @@ import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
     PizzasComponent,
     CartComponent,
     OrdersComponent,
+    AdminPizzasComponent,
     EditPizzaComponent,
-    AddPizzaComponent
+    AddPizzaComponent,
+    AdminOrdersComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
