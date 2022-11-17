@@ -15,20 +15,16 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   {
     path: 'user',
-    redirectTo: 'user/pizzas',
-    pathMatch: 'full',
+    component: PizzasComponent,
     children: [
-      { path: 'pizzas', component: PizzasComponent },
       { path: 'cart', component: CartComponent },
       { path: 'orders', component: OrdersComponent },
     ],
   },
   {
     path: 'admin',
-    redirectTo: 'admin/pizzas',
-    pathMatch: 'full',
+    component: AdminPizzasComponent,
     children: [
-      { path: 'pizzas', component: AdminPizzasComponent },
       { path: 'pizzas/edit', component: EditPizzaComponent },
       { path: 'pizzas/add', component: AddPizzaComponent },
       { path: 'orders', component: AdminOrdersComponent },
