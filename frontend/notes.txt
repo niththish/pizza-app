@@ -1,0 +1,14 @@
+/user/login                 ->  login and get jwt token from the backend
+/user/signup                ->  create new user account
+/user/forgot_password       ->  displays "link to change password has been sent to your mail"
+
+/user/pizzas                ->  displays all the pizzas available
+filters : 1) veg            ->  displays only veg pizzas
+          2) non veg        ->  displays only non veg pizzas
+/user/cart                  ->  displays users cart
+/user/orders                ->  displays all the orders user made
+
+/admin/pizzas               ->  displays all the pizzas with edit, add, delete options
+/admin/pizzas/edit          ->  form to edit the pizza details
+/admin/pizzas/add           ->  form to add a new pizza item
+/admin/orders               ->  displays all the orders the application has received
