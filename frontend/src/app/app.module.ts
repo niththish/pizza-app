@@ -3,10 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { PizzasComponent } from './user/pizzas/pizzas.component';
+import { CartComponent } from './user/cart/cart.component';
+import { OrdersComponent } from './user/orders/orders.component';
+import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
+import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    PizzasComponent,
+    CartComponent,
+    OrdersComponent,
+    EditPizzaComponent,
+    AddPizzaComponent
   ],
   imports: [
     BrowserModule,
