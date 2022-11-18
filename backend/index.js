@@ -1,6 +1,7 @@
 const express = require("express");
 const databaseConnection = require("./config/database");
 require("dotenv").config();
+const cors = require("cors");
 
 //routes
 const userRouter = require("./routes/user");
@@ -13,6 +14,7 @@ const authVerification = require("./middleware/verifyToken");
 const handleError = require("./controllers/error_handler");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
