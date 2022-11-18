@@ -1,1 +1,52 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+  <div class="container">
+    <h1 class="form-header">LOGIN</h1>
+    <!-- username field -->
+    <div>
+      <input type="text" placeholder="username" formControlName="username" />
+      <p
+        class="invalid"
+        *ngIf="userName?.touched && userName?.errors?.['required']"
+      >
+        username required
+      </p>
+      <p
+        class="invalid"
+        *ngIf="userName?.touched && userName?.errors?.['pattern']"
+      >
+        must be alphabet characters (minimum 4chars)
+      </p>
+    </div>
+    <!-- end of username field -->
+
+    <!-- password field -->
+    <div>
+      <input
+        type="password"
+        placeholder="password"
+        formControlName="password"
+      />
+      <p
+        class="invalid"
+        *ngIf="password?.touched && password?.errors?.['required']"
+      >
+        password required
+      </p>
+      <p
+        class="invalid"
+        *ngIf="password?.touched && password?.errors?.['pattern']"
+      >
+        must have small letter, capital letter, symbols and digit (minimum
+        8chars)
+      </p>
+    </div>
+    <!-- end of password field -->
+
+    <div class="button-container">
+      <button [disabled]="loginForm.status === 'INVALID'">continue</button>
+    </div>
+    <div>
+      <p>new user? <a routerLink="/signup" class="signup-link">signup</a></p>
+    </div>
+  </div>
+</form>
