@@ -1,4 +1,9 @@
 export interface LoginData {
-  username: String;
-  password: String;
+  username: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  status: string;
+  token: string;
 }

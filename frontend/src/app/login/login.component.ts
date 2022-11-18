@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  errorResponse: String = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private route: Router
+  ) {
     this.loginForm = fb.group({
       username: [, [Validators.required, Validators.pattern('^[a-zA-Z]{4,}$')]],
       password: [
@@ -32,9 +39,30 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  login() {
-    console.log(this.loginForm.value);
+  showPassword(elem: HTMLInputElement) {
+    if (elem.type === 'password') elem.type = 'text';
+    else elem.type = 'password';
   }
 
-  ngOnInit(): void {}
+  login() {
+    const payload = this.loginForm.value;
+    this.loginService.login(payload).subscribe({
+      next: (data) => {
+        localStorage.setItem('token', data.token);
+        this.route.navigateByUrl('/user');
+      },
+      error: (err) => {
+        this.errorResponse = err.error.response;
+        setTimeout(() => {
+          this.errorResponse = '';
+        }, 4000);
+      },
+    });
+  }
+
+  ngOnInit(): void {
+    if (localStorage.getItem('token')) {
+      this.route.navigateByUrl('/user');
+    }
+  }
 }

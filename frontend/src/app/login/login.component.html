@@ -21,11 +21,19 @@
 
     <!-- password field -->
     <div>
-      <input
-        type="password"
-        placeholder="password"
-        formControlName="password"
-      />
+      <span class="password-field">
+        <input
+          #passwordElem
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+        <i
+          class="fa fa-eye"
+          (click)="showPassword(passwordElem)"
+          aria-hidden="true"
+        ></i>
+      </span>
       <p
         class="invalid"
         *ngIf="password?.touched && password?.errors?.['required']"
@@ -50,3 +58,5 @@
     </div>
   </div>
 </form>
+
+<p class="error" *ngIf="errorResponse">{{ errorResponse }}</p>

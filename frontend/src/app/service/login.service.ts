@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginData } from '../interfaces/login.interface';
+import { LoginData, LoginResponse } from '../interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +10,8 @@ import { LoginData } from '../interfaces/login.interface';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  login(payload: LoginData) {
+  login(payload: LoginData): Observable<LoginResponse> {
     const URL = `${environment.APIURL}/user/login`;
-    return this.http.post(URL, payload);
+    return this.http.post<LoginResponse>(URL, payload);
   }
 }
