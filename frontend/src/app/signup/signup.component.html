@@ -1,1 +1,137 @@
-<p>signup works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+  <div class="container">
+    <h1 class="form-header">SIGNUP</h1>
+    <!-- username field -->
+    <div>
+      <input type="text" placeholder="username" formControlName="username" />
+      <p
+        class="invalid"
+        *ngIf="userName?.touched && userName?.errors?.['required']"
+      >
+        username required
+      </p>
+      <p
+        class="invalid"
+        *ngIf="userName?.touched && userName?.errors?.['pattern']"
+      >
+        must be alphabet characters (minimum 4chars)
+      </p>
+    </div>
+    <!-- end of username field -->
+
+    <!-- password field -->
+    <div>
+      <span class="password-field">
+        <input
+          #passwordElem
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+        <i
+          class="fa fa-eye"
+          (click)="showPassword(passwordElem)"
+          aria-hidden="true"
+        ></i>
+      </span>
+      <p
+        class="invalid"
+        *ngIf="password?.touched && password?.errors?.['required']"
+      >
+        password required
+      </p>
+      <p
+        class="invalid"
+        *ngIf="password?.touched && password?.errors?.['pattern']"
+      >
+        must have small letter, capital letter, symbols and digit (minimum
+        8chars)
+      </p>
+    </div>
+    <!-- end of password field -->
+
+    <!-- email ID field -->
+    <div>
+      <input type="email" placeholder="email ID" formControlName="email" />
+      <p class="invalid" *ngIf="email?.touched && email?.errors?.['required']">
+        email ID required
+      </p>
+      <p class="invalid" *ngIf="email?.touched && email?.errors?.['pattern']">
+        must be a valid mail ID
+      </p>
+    </div>
+    <!-- end of email ID field -->
+
+    <!-- mobile field -->
+    <div>
+      <input type="tel" placeholder="mobile number" formControlName="mobile" />
+      <p
+        class="invalid"
+        *ngIf="mobile?.touched && mobile?.errors?.['required']"
+      >
+        mobile number required
+      </p>
+      <p class="invalid" *ngIf="mobile?.touched && mobile?.errors?.['pattern']">
+        must be a valid mobile number
+      </p>
+    </div>
+    <!-- end of mobile field -->
+
+    <!-- address field -->
+    <div class="address-field" formGroupName="address">
+      <!-- line1 field -->
+      <div>
+        <input
+          type="text"
+          placeholder="address line 1"
+          formControlName="line1"
+        />
+        <p
+          class="invalid"
+          *ngIf="line1?.touched && line1?.errors?.['required']"
+        >
+          line1 address required
+        </p>
+      </div>
+      <!-- end of line1 field -->
+
+      <!-- line2 field -->
+      <div>
+        <input
+          type="text"
+          placeholder="address line 2"
+          formControlName="line2"
+        />
+        <p
+          class="invalid"
+          *ngIf="line2?.touched && line2?.errors?.['required']"
+        >
+          line2 address required
+        </p>
+      </div>
+      <!-- end of line2 field -->
+
+      <!-- city field -->
+      <div>
+        <input type="text" placeholder="city name" formControlName="city" />
+        <p class="invalid" *ngIf="city?.touched && city?.errors?.['required']">
+          city name required
+        </p>
+      </div>
+      <!-- end of city field -->
+    </div>
+    <!-- end of address field -->
+
+    <div class="button-container">
+      <button [disabled]="signupForm.status === 'INVALID'">signup</button>
+    </div>
+    <div>
+      <p>
+        Already a user? <a routerLink="/login" class="signup-link">login</a>
+      </p>
+    </div>
+  </div>
+</form>
+
+<p class="error" *ngIf="errorResponse">{{ errorResponse }}</p>
+<p class="success" *ngIf="successResponse">{{ successResponse }}</p>
