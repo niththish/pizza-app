@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema({
   cart: [cartSchema],
   role: {
     type: String,
-    default: "user",
+    default: "customer",
     enum: {
       values: ["customer"],
       message: "role can be only customer",
