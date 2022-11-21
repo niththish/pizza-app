@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
   }
 
   addToOrders() {
-    this.cartService.addToOrders(this.cart).subscribe({
+    this.cartService.addToOrders().subscribe({
       next: (data) => {
         console.log(data);
         this.cartEmpty();

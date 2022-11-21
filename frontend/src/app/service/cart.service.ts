@@ -30,10 +30,10 @@ export class CartService {
     return this.http.delete(url, { headers, body: item });
   }
 
-  addToOrders(cart: cart[]) {
+  addToOrders() {
     const url = `${environment.APIURL}/orders`;
     const authentication = `Bearer ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders({ authorization: authentication });
-    return this.http.post(url, { headers, body: cart });
+    return this.http.post(url, null, { headers });
   }
 }
