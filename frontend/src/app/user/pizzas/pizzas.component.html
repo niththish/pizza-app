@@ -9,7 +9,9 @@
     <div class="pizza-body">
       <h3>{{ pizza.name }}</h3>
       <h6>{{ pizza.price }}</h6>
-      <button (click)="addToCart(pizza._id, pizza.price)">add to cart</button>
+      <button (click)="addToCart(pizza._id, pizza.price, pizza.name)">
+        add to cart
+      </button>
     </div>
   </div>
 </div>

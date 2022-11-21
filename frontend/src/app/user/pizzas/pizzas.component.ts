@@ -23,12 +23,14 @@ export class PizzasComponent implements OnInit {
     });
   }
 
-  addToCart(id: string, price: number) {
+  addToCart(id: string, price: number, name: string) {
     const payload = {
       productId: id,
       price,
       quantity: 1,
+      name,
     };
+    console.log(payload);
 
     this.pizzaService
       .addToCart(payload)
