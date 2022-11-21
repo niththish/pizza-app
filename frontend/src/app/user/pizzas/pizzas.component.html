@@ -1,1 +1,16 @@
-<p>pizzas works!</p>
+<div class="filters">
+  <button (click)="filterPizza('veg')">veg pizza</button>
+  <button (click)="filterPizza('non veg')">non veg pizza</button>
+</div>
+
+<div class="pizza-card-container">
+  <div class="pizza-card" *ngFor="let pizza of pizzas">
+    <img src="{{ image_BASEURL }}{{ pizza.image }}" alt="" />
+    <div class="pizza-body">
+      <h3>{{ pizza.name }}</h3>
+      <h6>{{ pizza.price }}</h6>
+      <button (click)="addToCart(pizza._id, pizza.price)">add to cart</button>
+    </div>
+  </div>
+</div>
+<p class="no-item" *ngIf="pizzas.length == 0">no pizza items available</p>
