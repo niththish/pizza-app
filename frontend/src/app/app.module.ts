@@ -15,12 +15,14 @@ import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
 import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
 import { AdminOrdersComponent } from './admin/orders/orders.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
+    UserComponent,
     PizzasComponent,
     CartComponent,
     OrdersComponent,
