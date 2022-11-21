@@ -15,6 +15,10 @@ const cartSchema = mongoose.Schema({
   price: {
     type: Number,
   },
+  name: {
+    type: String,
+    required: [true, "pizza name required"],
+  },
 });
 
 module.exports = cartSchema;

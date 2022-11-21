@@ -14,15 +14,15 @@ const getCart = async (req, res, next) => {
 //to add a item into a users cart
 const addToCart = async (req, res, next) => {
   const _id = req.id;
-  const { productId, quantity, price } = req.body;
+  const { productId, quantity, price, name } = req.body;
 
-  if (!productId || !quantity || !price) {
+  if (!productId || !quantity || !price || !name) {
     return next("invalid cart item");
   }
 
   await userSchema.updateOne(
     { _id },
-    { $push: { cart: { productId, quantity, price } } },
+    { $push: { cart: { productId, quantity, price, name } } },
     { new: true, runValidators: true }
   );
 
@@ -32,9 +32,9 @@ const addToCart = async (req, res, next) => {
 //to delete a item from a user cart
 const deleteFromCart = async (req, res, next) => {
   const _id = req.id;
-  const { productId, quantity, price } = req.body;
+  const { productId, quantity, price, name } = req.body;
 
-  if (!productId || !quantity || !price) {
+  if (!productId || !quantity || !price || !name) {
     return next("invalid cart item");
   }
 
