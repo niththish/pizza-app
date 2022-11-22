@@ -10,7 +10,7 @@ const orders = async (req, res, next) => {
   if (user.role === "admin") {
     orders = await orderSchema.find({});
   } else {
-    orders = await orderSchema.find({ _id });
+    orders = await orderSchema.find({ customerId: _id });
   }
 
   res.json({ orders });
