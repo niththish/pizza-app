@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.route.navigateByUrl('/');
   }
+
+  headRoute(): string {
+    return '/user/pizzas';
+  }
 }
