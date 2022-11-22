@@ -1,1 +1,24 @@
-<p>orders works!</p>
+<div class="header">
+  <h3>MY ORDERS</h3>
+</div>
+
+<div class="order-container">
+  <div class="order-item" *ngFor="let o of orders">
+    <div class="order-item-header" #order_header>
+      <h4>{{ o.customerId }}</h4>
+      <div>
+        <i
+          class="fa fa-chevron-circle-down"
+          aria-hidden="true"
+          (click)="toggleOrderBody(order_header)"
+        ></i>
+      </div>
+    </div>
+    <div class="order-item-body">
+      <div *ngFor="let item of o.items">
+        <h4>{{ item.name }}</h4>
+        <span id="cart-price">{{ item.price | currency: "INR" }}</span>
+      </div>
+    </div>
+  </div>
+</div>
