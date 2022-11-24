@@ -14,8 +14,10 @@ import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
 import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
 import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
 import { AdminOrdersComponent } from './admin/orders/orders.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './user/navbar/navbar.component';
 import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNavbarComponent } from './admin/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { UserComponent } from './user/user.component';
     PizzasComponent,
     CartComponent,
     OrdersComponent,
+    AdminComponent,
     AdminPizzasComponent,
     EditPizzaComponent,
     AddPizzaComponent,
     AdminOrdersComponent,
     NavbarComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,
