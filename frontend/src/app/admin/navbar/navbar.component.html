@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-header">
+    <h1 [routerLink]="headRoute()">PIZZA STORE</h1>
+    <i class="fas fa-bars" (click)="toggle(navbody)"></i>
+  </div>
+  <div class="nav-body" #navbody>
+    <ul class="nav-links">
+      <li>
+        <a
+          [routerLink]="'/admin/orders'"
+          [routerLinkActive]="'active'"
+          class="nav-link"
+          >orders</a
+        >
+      </li>
+      <li><a (click)="logout()" class="nav-link btn">logout</a></li>
+    </ul>
+  </div>
+</nav>
