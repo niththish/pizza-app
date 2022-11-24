@@ -37,4 +37,13 @@ export class PizzaService {
     const headers = new HttpHeaders({ authorization: authentication });
     return this.http.patch(url, payload, { headers });
   }
+
+  addItem(data: FormData) {
+    const url = `${environment.APIURL}/pizzas/`;
+    const authentication = `Bearer ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders({
+      authorization: authentication,
+    });
+    return this.http.post(url, data, { headers });
+  }
 }

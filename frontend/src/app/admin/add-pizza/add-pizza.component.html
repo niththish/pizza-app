@@ -1,1 +1,19 @@
-<p>add-pizza works!</p>
+<form [formGroup]="addPizzaForm">
+  <div class="container">
+    <h1 class="form-header">EDIT PIZZA</h1>
+
+    <div>
+      <input type="file" (change)="onChange($event)" />
+    </div>
+    <div>
+      <input type="text" formControlName="name" placeholder="pizza name" />
+    </div>
+    <div>
+      <input type="text" formControlName="price" placeholder="pizza price" />
+    </div>
+    <div>
+      <input type="text" formControlName="type" placeholder="pizza type" />
+    </div>
+    <button (click)="addItem()">Add</button>
+  </div>
+</form>
