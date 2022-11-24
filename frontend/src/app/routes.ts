@@ -3,6 +3,7 @@ import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
 import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
 import { AdminOrdersComponent } from './admin/orders/orders.component';
 import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
+import { AuthguardGuard } from './guard/authguard.guard';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './user/cart/cart.component';
@@ -22,6 +23,7 @@ export const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'orders', component: OrdersComponent },
     ],
+    canActivateChild: [AuthguardGuard],
   },
   {
     path: 'admin',
@@ -31,5 +33,6 @@ export const routes: Routes = [
       { path: 'pizzas/add', component: AddPizzaComponent },
       { path: 'orders', component: AdminOrdersComponent },
     ],
+    canActivateChild: [AuthguardGuard],
   },
 ];
