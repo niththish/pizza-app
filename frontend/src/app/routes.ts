@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AddPizzaComponent } from './admin/add-pizza/add-pizza.component';
+import { AdminComponent } from './admin/admin.component';
 import { EditPizzaComponent } from './admin/edit-pizza/edit-pizza.component';
 import { AdminOrdersComponent } from './admin/orders/orders.component';
 import { AdminPizzasComponent } from './admin/pizzas/pizzas.component';
@@ -27,8 +28,9 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminPizzasComponent,
+    component: AdminComponent,
     children: [
+      { path: 'pizzas', component: AdminPizzasComponent },
       { path: 'pizzas/edit', component: EditPizzaComponent },
       { path: 'pizzas/add', component: AddPizzaComponent },
       { path: 'orders', component: AdminOrdersComponent },
