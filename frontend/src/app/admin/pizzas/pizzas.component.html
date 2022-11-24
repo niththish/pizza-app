@@ -1,1 +1,15 @@
-<p>pizzas works!</p>
+<div class="pizza-card-container">
+  <div class="pizza-card" *ngFor="let pizza of pizzas">
+    <img src="http://{{ pizza.image }}" alt="" />
+    <div class="pizza-body">
+      <h3>{{ pizza.name }}</h3>
+      <h6>{{ pizza.price }}</h6>
+      <div>
+        <i class="fas fa-edit"></i>
+        <i class="fas fa-trash" (click)="deleteItem(pizza._id)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="no-item" *ngIf="pizzas.length == 0">no pizza items available</p>
+<a [routerLink]="'edit'">eee</a>

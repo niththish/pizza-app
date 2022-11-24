@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { pizza } from 'src/app/interfaces/pizza.interface';
+import { PizzaService } from 'src/app/service/pizza.service';
 
 @Component({
   selector: 'app-pizzas',
@@ -6,7 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pizzas.component.scss'],
 })
 export class AdminPizzasComponent implements OnInit {
-  constructor() {}
+  pizzas: pizza[] = [];
+  pizzaData: pizza[] = [];
 
-  ngOnInit(): void {}
+  constructor(private pizzaService: PizzaService) {}
+
+  ngOnInit(): void {
+    this.pizzaService.getpizzas().subscribe({
+      next: (data: any) => {
+        this.pizzaData = data.pizzas;
+        this.pizzas = this.pizzaData;
+      },
+    });
+  }
+
+  deleteItem(id: string) {
+    this.pizzaService.deleteItem(id).subscribe({
+      next: (res) => {
+        this.pizzas = this.pizzas.filter((pizza) => pizza._id !== id);
+      },
+    });
+  }
 }
