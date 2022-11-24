@@ -1,4 +1,6 @@
 const userSchema = require("../models/user");
+const bcrypt = require("bcryptjs");
+
 const {
   validateUsername,
   validatePassword,
@@ -23,6 +25,9 @@ const updateUserController = async (req, res, next) => {
     const passwordValidation = validatePassword(patchData.password);
     if (passwordValidation) {
       return next(passwordValidation);
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      patchData.password = await bcrypt.hash(patchData.password, salt);
     }
   }
 
