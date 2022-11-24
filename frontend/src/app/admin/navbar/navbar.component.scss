@@ -13,7 +13,7 @@ nav {
 
   .nav-header {
     display: flex;
-    width: 100%;
+
     justify-content: space-between;
     padding: 0 15px;
     align-items: center;
@@ -72,6 +72,7 @@ nav {
 @media screen and (min-width: 768px) {
   nav {
     flex-direction: row;
+    justify-content: space-between;
 
     .nav-header {
       padding: 0 25px;

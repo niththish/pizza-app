@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { pizza } from 'src/app/interfaces/pizza.interface';
 import { PizzaService } from 'src/app/service/pizza.service';
 
@@ -11,7 +12,7 @@ export class AdminPizzasComponent implements OnInit {
   pizzas: pizza[] = [];
   pizzaData: pizza[] = [];
 
-  constructor(private pizzaService: PizzaService) {}
+  constructor(private pizzaService: PizzaService, private route: Router) {}
 
   ngOnInit(): void {
     this.pizzaService.getpizzas().subscribe({
@@ -28,5 +29,9 @@ export class AdminPizzasComponent implements OnInit {
         this.pizzas = this.pizzas.filter((pizza) => pizza._id !== id);
       },
     });
+  }
+
+  editItem(pizza: pizza) {
+    this.route.navigate(['admin/pizzas/edit'], { state: { pizza } });
   }
 }
