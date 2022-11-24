@@ -1,1 +1,34 @@
-<p>edit-pizza works!</p>
+<form [formGroup]="updatePizzaForm">
+  <div class="container">
+    <h1 class="form-header">EDIT PIZZA</h1>
+
+    <div>
+      <input
+        type="text"
+        [value]="pizza.name"
+        [(ngModel)]="pizza.name"
+        formControlName="name"
+        placeholder="pizza name"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        [value]="pizza.price"
+        [(ngModel)]="pizza.price"
+        formControlName="price"
+        placeholder="pizza price"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        [value]="pizza.type"
+        [(ngModel)]="pizza.type"
+        formControlName="type"
+        placeholder="pizza type"
+      />
+    </div>
+    <button (click)="updateItem()">update</button>
+  </div>
+</form>
