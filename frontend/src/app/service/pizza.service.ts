@@ -30,4 +30,11 @@ export class PizzaService {
     const headers = new HttpHeaders({ authorization: authentication });
     return this.http.delete(url, { headers });
   }
+
+  updateItem(id: string, payload: pizza) {
+    const url = `${environment.APIURL}/pizzas/${id}`;
+    const authentication = `Bearer ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders({ authorization: authentication });
+    return this.http.patch(url, payload, { headers });
+  }
 }
