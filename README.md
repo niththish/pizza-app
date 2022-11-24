@@ -30,6 +30,7 @@ A full stack pizza store application
 | `POST`  | /user/signup  | register new user       |
 | `POST`  | /user/login   | login and get jwt token |
 | `POST`  | /user/        | modify user details     |
+| `GET`   | /user/role    | to get users role       |
 
 ### for user cart and orders
 | method  | url             | functionality                             |
