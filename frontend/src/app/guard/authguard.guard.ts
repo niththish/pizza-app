@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
+  CanActivateChild,
   RouterStateSnapshot,
 } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthguardGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
+export class AuthguardGuard implements CanActivateChild {
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
     const role = localStorage.getItem('role');
