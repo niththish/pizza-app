@@ -108,3 +108,15 @@ span {
 .success {
   background-color: green;
 }
+
+$navColor: #fdfeff;
+$navShadow: 0px 4px 10px rgba(195, 195, 195, 0.25);
+
+nav {
+  background-color: $navColor;
+  box-shadow: $navShadow;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+}

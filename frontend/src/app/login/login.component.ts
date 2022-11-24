@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const role = localStorage.getItem('role');
     const token = localStorage.getItem('token');
-
     if (token && role === 'customer') this.route.navigateByUrl('/user');
     else if (token && role === 'admin') this.route.navigateByUrl('/admin');
   }
